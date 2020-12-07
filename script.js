@@ -45,6 +45,7 @@ const currentClass = X_Class
 if(cell.myBool == false && counter <6){
 
  placeMark(cell,currentClass)
+ console.log(cell.number)
 
 } 
 else if(cell.myBool == true && counter <=6){
@@ -83,7 +84,13 @@ function removeMark(cell,currentClass){
   cell.classList.remove(currentClass)
   cell.myBool = false;
   counter--;
-  markedNumbers.pop()
+  
+  const index = markedNumbers.indexOf(cell.number)
+  if (index > -1) {
+  markedNumbers.splice(index, 1);
+}
+  
+  
 }
 
 function finish(){
